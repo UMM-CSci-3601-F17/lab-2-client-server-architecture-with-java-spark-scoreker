@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Map;
 
+/*
+Sam Score
+Nick Plucker
+ */
 /**
  * A fake "database" of user info
  *
