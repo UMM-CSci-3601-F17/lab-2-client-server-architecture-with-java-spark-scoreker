@@ -33,11 +33,12 @@ public class Server {
     enableDebugScreen();
 
     // Simple example route
-    get("/hello", (req, res) -> "Hello orld");
+    get("/hello", (req, res) -> "Hello World");
 
     // Redirects to create simpler URLs
     redirect.get("/about", "/about.html");
     redirect.get("/users", "/users.html");
+    redirect.get("/todos", "/todos.html");
 
     // API endpoints
 
@@ -45,7 +46,9 @@ public class Server {
     get("api/users/:id", userController::getUser);
     // List users, filtered using query parameters
     get("api/users", userController::getUsers);
+    // Get specific todo
     get("api/todos/:id", todoController::getTodo);
+    // List all todos
     get("api/todos", todoController::getTodos);
 
     // An example of throwing an unhandled exception so you can see how the
@@ -90,6 +93,16 @@ public class Server {
     return userController;
   }
 
+  /***
+   * Create a database using the json fie, use it as
+   * data source for a new TodoController
+   *
+   * Constructing the controller might throw an IOException if
+   * there are problems reading from the JSON "database" file.
+   * If that happens we'll print out an error message and shut
+   * the server down.
+   * @throws IOException if we can't open or read the todo data file
+   */
   private static TodoController buildTodoController() {
     TodoController todoController = null;
 
