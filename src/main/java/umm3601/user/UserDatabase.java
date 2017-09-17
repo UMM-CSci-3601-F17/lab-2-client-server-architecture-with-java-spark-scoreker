@@ -19,11 +19,11 @@ Nick Plucker
  * specified JSON file, and then provide various database-like
  * methods that allow the `UserController` to "query" the "database".
  */
-public class Database {
+public class UserDatabase {
 
   private User[] allUsers;
 
-  public Database(String userDataFile) throws IOException {
+  public UserDatabase(String userDataFile) throws IOException {
     Gson gson = new Gson();
     FileReader reader = new FileReader(userDataFile);
     allUsers = gson.fromJson(reader, User[].class);
