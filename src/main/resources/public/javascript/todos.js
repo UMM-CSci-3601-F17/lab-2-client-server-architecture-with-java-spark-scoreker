@@ -26,6 +26,33 @@ function getTodo() {
   });
 }
 
+function getTodosByStatus() {
+  console.log("Getting todos based on given status");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("api/todos?status=" + document.getElementById("status").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getTodosByLimit() {
+  console.log("Getting a number of todos based on given limit");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("api/todos?limit=" + document.getElementById("limit").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getTodosByString() {
+  console.log("Getting todos which contain given string");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("api/todos?contains=" + document.getElementById("contains").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
 /**
  * Wrapper to make generating http requests easier. Should maybe be moved
  * somewhere else in the future!.
