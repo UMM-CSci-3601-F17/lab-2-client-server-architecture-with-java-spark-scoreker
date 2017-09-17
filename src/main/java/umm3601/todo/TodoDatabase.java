@@ -49,12 +49,20 @@ public class TodoDatabase {
   public Todo[] listTodos(Map<String, String[]> queryParams) {
     Todo[] filteredTodos = allTodos;
 
-    // Filter age if defined
+    // Filter status if defined
     if(queryParams.containsKey("status")) {
-      boolean targetStatus = Boolean.parseBoolean(queryParams.get("status")[0]);
-      filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+      String status = queryParams.get("status")[0];
+      if(status.equals("complete")) {
+        boolean targetStatus = true;
+        filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+      }
+      if(status.equals("incomplete")) {
+        boolean targetStatus = false;
+        filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
+      }
     }
     // Process other query parameters here...
+
 
     return filteredTodos;
   }
