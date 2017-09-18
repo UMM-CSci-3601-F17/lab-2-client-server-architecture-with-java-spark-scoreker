@@ -54,6 +54,11 @@ public class TodoDatabase {
       boolean targetStatus = Boolean.parseBoolean(queryParams.get("status")[0]);
       filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
     }
+    // Filter by string if defined
+    if(queryParams.containsKey("contains")) {
+      String targetString = queryParams.get("contains")[0];
+      filteredTodos = filterTodosByString(filteredTodos, targetString);
+    }
 
     return filteredTodos;
   }
@@ -70,4 +75,7 @@ public class TodoDatabase {
     return Arrays.stream(todos).filter(x -> x.status == targetStatus).toArray(Todo[]::new);
   }
 
+  public Todo[] filterTodosByString(Todo[] todos, String targetString) {
+    return Arrays.stream(todos).filter(x -> x.body.contains(targetString)).toArray(Todo[]::new);
+  }
 }
