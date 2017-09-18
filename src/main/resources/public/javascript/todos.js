@@ -54,10 +54,19 @@ function getTodosByContains() {
 }
 
 function getTodosByCategory() {
-  console.log("Getting todos which contain given string");
+  console.log("Getting todos in given category");
 
   var HttpThingy = new HttpClient();
   HttpThingy.get("api/todos?category=" + document.getElementById("category").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getTodosByOwner() {
+  console.log("Getting todos with given owner");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("api/todos?owner=" + document.getElementById("owner").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }

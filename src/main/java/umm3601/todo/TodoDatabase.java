@@ -77,6 +77,11 @@ public class TodoDatabase {
       filteredTodos = filterTodosByCategory(filteredTodos, targetString);
     }
 
+    if(queryParams.containsKey("owner")) {
+      String targetString = queryParams.get("owner")[0];
+      filteredTodos = filterTodosByOwner(filteredTodos, targetString);
+    }
+
 
     return filteredTodos;
   }
@@ -107,5 +112,9 @@ public class TodoDatabase {
 
   public Todo[] filterTodosByCategory(Todo[] todos, String targetString) {
     return Arrays.stream(todos).filter(x -> x.category.contains(targetString)).toArray(Todo[]::new);
+  }
+
+  public Todo[] filterTodosByOwner(Todo[] todos, String targetString) {
+    return Arrays.stream(todos).filter(x -> x.owner.contains(targetString)).toArray(Todo[]::new);
   }
 }

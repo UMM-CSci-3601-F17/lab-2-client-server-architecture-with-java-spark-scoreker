@@ -31,6 +31,10 @@ id: <input id="id" type= "text" name="id">
 
 category: <input id="category" type= "text" name="category">
 <button type="button" id="getTodoByCategory"> get todos by category </button>
+<br> <br>
+
+owner: <input id="owner" type= "text" name="owner">
+<button type="button" id="getTodoByOwner"> get todos by owner </button>
 
 <script>
   window.onload = function() {
@@ -53,6 +57,9 @@ category: <input id="category" type= "text" name="category">
 
     element = document.getElementById('getTodoByCategory');
     element.addEventListener("click", getTodosByCategory, true);
+
+    element = document.getElementById('getTodoByOwner');
+    element.addEventListener("click", getTodosByOwner, true);
   }
 </script>
 </body>
