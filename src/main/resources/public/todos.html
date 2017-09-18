@@ -21,12 +21,16 @@ limit: <input id="limit" type= "text" name="limit">
 <button type="button" id="getTodosByLimit"> get todos by limit </button>
 <br> <br>
 
-string: <input id="string" type= "text" name="string">
-<button type="button" id="getTodosByString"> get todos by string </button>
+contains: <input id="contains" type= "text" name="contains">
+<button type="button" id="getTodosByContains"> get todos by finding if it contains a specified string  </button>
 <br> <br>
 
 id: <input id="id" type= "text" name="id">
-<button type="button" id="getTodosById"> get todos by id </button>
+<button type="button" id="getTodo"> get todos by id </button>
+<br> <br>
+
+category: <input id="category" type= "text" name="category">
+<button type="button" id="getTodoByCategory"> get todos by category </button>
 
 <script>
   window.onload = function() {
@@ -41,11 +45,14 @@ id: <input id="id" type= "text" name="id">
     element = document.getElementById('getTodosByLimit');
     element.addEventListener("click", getTodosByLimit, true);
 
-    element = document.getElementById('getTodosByString');
-    element.addEventListener("click", getTodosByString, true);
+    element = document.getElementById('getTodosByContains');
+    element.addEventListener("click", getTodosByContains, true);
 
-    element = document.getElementById('getTodosById');
+    element = document.getElementById('getTodo');
     element.addEventListener("click", getTodo, true);
+
+    element = document.getElementById('getTodoByCategory');
+    element.addEventListener("click", getTodosByCategory, true);
   }
 </script>
 </body>

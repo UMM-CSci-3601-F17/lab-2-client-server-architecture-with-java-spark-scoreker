@@ -22,7 +22,6 @@ function getAllUsersByAge() {
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
-
 /**
  * Wrapper to make generating http requests easier. Should maybe be moved
  * somewhere else in the future!.

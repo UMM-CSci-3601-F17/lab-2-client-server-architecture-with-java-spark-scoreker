@@ -21,7 +21,7 @@ function getTodo() {
   console.log("Getting the specified todo.");
 
   var HttpThingy = new HttpClient();
-  HttpThingy.get("/api/todos/" +  document.getElementById("_id").value, function(returned_json){
+  HttpThingy.get("/api/todos/" +  document.getElementById("id").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
@@ -44,11 +44,20 @@ function getTodosByLimit() {
   });
 }
 
-function getTodosByString() {
+function getTodosByContains() {
   console.log("Getting todos which contain given string");
 
   var HttpThingy = new HttpClient();
   HttpThingy.get("api/todos?contains=" + document.getElementById("contains").value, function(returned_json){
+    document.getElementById('jsonDump').innerHTML = returned_json;
+  });
+}
+
+function getTodosByCategory() {
+  console.log("Getting todos which contain given string");
+
+  var HttpThingy = new HttpClient();
+  HttpThingy.get("api/todos?category=" + document.getElementById("category").value, function(returned_json){
     document.getElementById('jsonDump').innerHTML = returned_json;
   });
 }
@@ -68,7 +77,7 @@ function HttpClient() {
     // Set a callback to be called when the ready state of our request changes.
     anHttpRequest.onreadystatechange = function(){
 
-      /**
+      /**58895985a22c04e761776d54
        * Only call our 'aCallback' function if the ready state is 'DONE' and
        * the request status is 200 ('OK')
        *
