@@ -54,7 +54,6 @@ public class TodoDatabase {
       boolean targetStatus = Boolean.parseBoolean(queryParams.get("status")[0]);
       filteredTodos = filterTodosByStatus(filteredTodos, targetStatus);
     }
-    // Process other query parameters here...
 
     return filteredTodos;
   }
@@ -70,4 +69,5 @@ public class TodoDatabase {
   public Todo[] filterTodosByStatus(Todo[] todos, boolean targetStatus) {
     return Arrays.stream(todos).filter(x -> x.status == targetStatus).toArray(Todo[]::new);
   }
+
 }
