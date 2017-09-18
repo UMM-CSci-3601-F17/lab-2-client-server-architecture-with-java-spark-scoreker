@@ -60,6 +60,11 @@ public class TodoDatabase {
       filteredTodos = filterTodosByString(filteredTodos, targetString);
     }
 
+    if(queryParams.containsKey("limit")) {
+      int targetLimit = Integer.parseInt(queryParams.get("limit")[0]);
+      filteredTodos = filterTodosByLimit(filteredTodos, targetLimit);
+    }
+
     return filteredTodos;
   }
 
@@ -73,6 +78,14 @@ public class TodoDatabase {
    */
   public Todo[] filterTodosByStatus(Todo[] todos, boolean targetStatus) {
     return Arrays.stream(todos).filter(x -> x.status == targetStatus).toArray(Todo[]::new);
+  }
+
+  public Todo[] filterTodosByLimit(Todo[] todos, int targetLimit) {
+    Todo[] todoHolder = new Todo[targetLimit];
+    for(int i = 0; i < targetLimit; i++) {
+      todoHolder[i] = todos[i];
+    }
+    return todoHolder;
   }
 
   public Todo[] filterTodosByString(Todo[] todos, String targetString) {
