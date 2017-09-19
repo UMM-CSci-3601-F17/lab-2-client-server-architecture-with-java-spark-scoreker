@@ -36,6 +36,7 @@ public class Server {
     get("/hello", (req, res) -> "Hello World");
 
     // Redirects to create simpler URLs
+    redirect.get("/index", "/index.html");
     redirect.get("/about", "/about.html");
     redirect.get("/users", "/users.html");
     redirect.get("/todos", "/todos.html");
