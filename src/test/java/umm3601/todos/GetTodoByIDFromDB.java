@@ -14,13 +14,13 @@ public class GetTodoByIDFromDB {
   public void getBlanche() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
     Todo first = db.getTodo("58895985a22c04e761776d54");
-    assertEquals("Incorrect owner", "Blanche", first.owner);
+    assertEquals("Incorrect owner", "Blanche", first.getOwner());
   }
 
   @Test
   public void getFry() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
     Todo second = db.getTodo("58895985c1849992336c219b");
-    assertEquals("Incorrect owner", "Fry", second.owner);
+    assertEquals("Incorrect owner", "Fry", second.getOwner());
   }
 }
