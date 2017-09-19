@@ -10,6 +10,8 @@ import static junit.framework.TestCase.assertEquals;
 
 public class GetTodoByIDFromDB {
 
+  // Tests filter the todo data and verifies that the filtered item by id matches the correct owner
+
   @Test
   public void getBlanche() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

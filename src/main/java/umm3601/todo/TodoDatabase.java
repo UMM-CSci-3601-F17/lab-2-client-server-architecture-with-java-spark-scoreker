@@ -12,10 +12,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * A fake "database" of user info
+ * A fake "database" of todo info
  *
  * Since we don't want to complicate this lab with a real database,
- * we're going to instead just read a bunch of user data from a
+ * we're going to instead just read a bunch of todo data from a
  * specified JSON file, and then provide various database-like
  * methods that allow the `TodoController` to "query" the "database".
  */
@@ -29,7 +29,7 @@ public class TodoDatabase {
   }
 
   /**
-   * Get the single user specified by the given ID. Return
+   * Get the single todo specified by the given ID. Return
    * `null` if there is no todo with that ID.
    *
    * @param id the ID of the desired todos
@@ -67,16 +67,19 @@ public class TodoDatabase {
       filteredTodos = filterTodosByString(filteredTodos, targetString);
     }
 
+    // Filter by a limit if defined
     if(queryParams.containsKey("limit")) {
       int targetLimit = Integer.parseInt(queryParams.get("limit")[0]);
       filteredTodos = filterTodosByLimit(filteredTodos, targetLimit);
     }
 
+    // Filter by a category if defined
     if(queryParams.containsKey("category")) {
       String targetString = queryParams.get("category")[0];
       filteredTodos = filterTodosByCategory(filteredTodos, targetString);
     }
 
+    // Filter by a owner if defined
     if(queryParams.containsKey("owner")) {
       String targetString = queryParams.get("owner")[0];
       filteredTodos = filterTodosByOwner(filteredTodos, targetString);
@@ -87,7 +90,7 @@ public class TodoDatabase {
   }
 
   /**
-   * Get an array of all the todos having the target age.
+   * Get an array of all the todos having the target status.
    *
    * @param todos the list of todos to filter by status
    * @param targetStatus the target status to look for
@@ -98,6 +101,14 @@ public class TodoDatabase {
     return Arrays.stream(todos).filter(x -> x.status == targetStatus).toArray(Todo[]::new);
   }
 
+  /**
+   * Get an array of all the todos having the target limit.
+   *
+   * @param todos the list of todos to filter by status
+   * @param targetLimit the target limit to look for
+   * @return an array of all the todos from the given list that have
+   * the target limit
+   */
   public Todo[] filterTodosByLimit(Todo[] todos, int targetLimit) {
     Todo[] todoHolder = new Todo[targetLimit];
     for(int i = 0; i < targetLimit; i++) {
@@ -106,15 +117,39 @@ public class TodoDatabase {
     return todoHolder;
   }
 
+  /**
+   * Get an array of all the todos having the target string (contains).
+   *
+   * @param todos the list of todos to filter by status
+   * @param targetString the target string to look for
+   * @return an array of all the todos from the given list that have
+   * the target string
+   */
   public Todo[] filterTodosByString(Todo[] todos, String targetString) {
     return Arrays.stream(todos).filter(x -> x.body.contains(targetString)).toArray(Todo[]::new);
   }
 
-  public Todo[] filterTodosByCategory(Todo[] todos, String targetString) {
-    return Arrays.stream(todos).filter(x -> x.category.contains(targetString)).toArray(Todo[]::new);
+  /**
+   * Get an array of all the todos having the target category.
+   *
+   * @param todos the list of todos to filter by category
+   * @param targetCategory the target category to look for
+   * @return an array of all the todos from the given list that have
+   * the target category
+   */
+  public Todo[] filterTodosByCategory(Todo[] todos, String targetCategory) {
+    return Arrays.stream(todos).filter(x -> x.category.contains(targetCategory)).toArray(Todo[]::new);
   }
 
-  public Todo[] filterTodosByOwner(Todo[] todos, String targetString) {
-    return Arrays.stream(todos).filter(x -> x.owner.contains(targetString)).toArray(Todo[]::new);
+  /**
+   * Get an array of all the todos having the target owner.
+   *
+   * @param todos the list of todos to filter by owner
+   * @param targetOwner the target owner to look for
+   * @return an array of all the todos from the given list that have
+   * the target owner
+   */
+  public Todo[] filterTodosByOwner(Todo[] todos, String targetOwner) {
+    return Arrays.stream(todos).filter(x -> x.owner.contains(targetOwner)).toArray(Todo[]::new);
   }
 }

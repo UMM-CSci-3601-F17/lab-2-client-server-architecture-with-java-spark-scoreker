@@ -10,6 +10,9 @@ import java.util.HashMap;
 import static junit.framework.TestCase.assertEquals;
 
 public class FilterTodosByContains {
+
+  // Tests filter the todo data by a given string and verifies that only X amount of them exist when filtered
+
   @Test
   public void getStringA() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

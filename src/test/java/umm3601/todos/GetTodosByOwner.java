@@ -10,6 +10,9 @@ import java.util.HashMap;
 import static junit.framework.TestCase.assertEquals;
 
 public class GetTodosByOwner {
+
+  // Tests filter the todo data by owner and verifies that only X amount of JSON objects exist with the the specified
+
   @Test
   public void getBlanche() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

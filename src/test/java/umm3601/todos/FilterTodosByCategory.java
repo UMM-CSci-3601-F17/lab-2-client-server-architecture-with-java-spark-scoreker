@@ -10,6 +10,9 @@ import java.util.HashMap;
 import static junit.framework.TestCase.assertEquals;
 
 public class FilterTodosByCategory {
+
+  // Tests filter each category in the todo data and verifies that only X amount of them contain the specified category
+
   @Test
   public void getSoftware_Design() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

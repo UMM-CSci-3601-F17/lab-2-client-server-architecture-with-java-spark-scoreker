@@ -12,6 +12,8 @@ import static junit.framework.TestCase.assertEquals;
 
 public class GetTodoListLimitedByInt {
 
+  // Tests limit the todo data and ensures that only X amount of JSON objects exist
+
   @Test
   public void getTodoListLimitedByFive() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

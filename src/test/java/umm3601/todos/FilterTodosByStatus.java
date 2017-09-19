@@ -12,6 +12,8 @@ import static junit.framework.TestCase.assertEquals;
 
 public class FilterTodosByStatus {
 
+  // Tests filter the todo data by a given status and verifies that only X amount of them exist when filtered
+
   @Test
   public void filterTodosByStatus() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");

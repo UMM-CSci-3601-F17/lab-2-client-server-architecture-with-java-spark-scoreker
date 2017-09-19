@@ -7,6 +7,7 @@ public class Todo {
   String body;
   String category;
 
+  // Returns the owner so that FilterTodoByIDFromDB tests will work properly
   public String getOwner() {
     return owner;
   }
