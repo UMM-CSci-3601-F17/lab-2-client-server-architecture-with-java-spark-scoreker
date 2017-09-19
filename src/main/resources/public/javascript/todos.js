@@ -26,6 +26,9 @@ function getTodo() {
   });
 }
 
+/**
+ * Function to get all todos with a given status (complete or incomplete)
+ */
 function getTodosByStatus() {
   console.log("Getting todos based on given status");
 
@@ -35,6 +38,9 @@ function getTodosByStatus() {
   });
 }
 
+/**
+ * Function to get a single todo via an ID
+ */
 function getTodosByLimit() {
   console.log("Getting a number of todos based on given limit");
 
@@ -44,6 +50,9 @@ function getTodosByLimit() {
   });
 }
 
+/**
+ * Function to get todos that contain a given string in their body
+ */
 function getTodosByContains() {
   console.log("Getting todos which contain given string");
 
@@ -53,6 +62,9 @@ function getTodosByContains() {
   });
 }
 
+/**
+ * Function to get todos in a given category
+ */
 function getTodosByCategory() {
   console.log("Getting todos in given category");
 
@@ -62,6 +74,9 @@ function getTodosByCategory() {
   });
 }
 
+/**
+ * Function to get todos by a given owner
+ */
 function getTodosByOwner() {
   console.log("Getting todos with given owner");
 
