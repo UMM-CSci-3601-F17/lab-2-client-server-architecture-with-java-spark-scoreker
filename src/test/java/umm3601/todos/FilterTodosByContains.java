@@ -11,7 +11,7 @@ import static junit.framework.TestCase.assertEquals;
 
 public class FilterTodosByContains {
   @Test
-  public void getBanana() throws IOException {
+  public void getStringA() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
     Todo[] first = db.filterTodosByString(allTodos,"banana");
@@ -19,7 +19,7 @@ public class FilterTodosByContains {
   }
 
   @Test
-  public void getStringA() throws IOException {
+  public void getStringB() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
     Todo[] second = db.filterTodosByString(allTodos,"Proident cupidatat exercitation id ullamco magna do qui aliquip id");
@@ -27,10 +27,10 @@ public class FilterTodosByContains {
   }
 
   @Test
-  public void getStringB() throws IOException {
+  public void getStringC() throws IOException {
     TodoDatabase db = new TodoDatabase("src/main/data/todos.json");
     Todo[] allTodos = db.listTodos(new HashMap<>());
-    Todo[] second = db.filterTodosByString(allTodos,"occaecat");
-    assertEquals("Incorrect number of Todos that contain the string", 78, second.length);
+    Todo[] third = db.filterTodosByString(allTodos,"occaecat");
+    assertEquals("Incorrect number of Todos that contain the string", 78, third.length);
   }
 }
