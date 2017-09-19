@@ -6,4 +6,14 @@ public class Todo {
   Boolean status;
   String body;
   String category;
+
+  public String getOwner() {
+    return owner;
+  }
+
 }
+
+
+
+
+
