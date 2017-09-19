@@ -7,25 +7,10 @@ public class Todo {
   String body;
   String category;
 
-  public String get_id() {
-    return _id;
-  }
-
   public String getOwner() {
     return owner;
   }
-
-  public Boolean status() {
-    return status;
-  }
-
-  public String getBody() {
-    return body;
-  }
-
-  public String getCategory() {
-    return category;
-  }
+  
 }
 
 
